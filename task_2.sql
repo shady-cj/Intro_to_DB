@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS Books (
     price DOUBLE,
     publication_date DATE,
     
-    CONSTRAINT author_fk FOREIGN KEY (author_id) REFERENCES authors(author_id)
+    CONSTRAINT author_fk FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 );
 
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS Orders (
     customer_id INT NOT NULL,
     order_date DATE NOT NULL,
     
-    CONSTRAINT fk_customer_orders FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+    CONSTRAINT fk_customer_orders FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS Order_Details (
     book_id INT NOT NULL,
     quantity DOUBLE,
     
-    CONSTRAINT fk_order_order_details FOREIGN KEY (order_id) REFERENCES orders(order_id),
-    CONSTRAINT fk_book_order_details FOREIGN KEY (book_id) REFERENCES books(book_id)
+    CONSTRAINT fk_order_order_details FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+    CONSTRAINT fk_book_order_details FOREIGN KEY (book_id) REFERENCES Books(book_id)
     
 );
