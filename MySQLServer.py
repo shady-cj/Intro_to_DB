@@ -24,12 +24,12 @@ def create_to_db(db_conn):
     try:
         cursor = db_conn.cursor()
         cursor.execute("CREATE DATABASE alx_book_store")
+        print("Database 'alx_book_store' created successfully!")
     except mysql.connector.Error as e:
         print(e)
-        return None
-    return cursor.fetchone()
+
 
 if __name__ == "__main__":
     conn = connect_to_mysql()
     if conn:
-        print(create_to_db(conn))
+        create_to_db(conn)
