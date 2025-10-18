@@ -1,3 +1,4 @@
+# pylint: disable=missing-function-docstring
 # -*- coding: utf-8 -*-
 """
 Created on Sat Oct 18 15:09:43 2025
@@ -17,9 +18,7 @@ def connect_to_mysql():
     except mysql.connector.Error as e:
         print(str(e))
         return None
-    
     return db_conn
-
 
 def create_to_db(db_conn):
     try:
@@ -28,13 +27,9 @@ def create_to_db(db_conn):
     except mysql.connector.Error as e:
         print(e)
         return None
-    cursor.fetchone()
-    
+    return cursor.fetchone()
+
 if __name__ == "__main__":
     conn = connect_to_mysql()
     if conn:
         print(create_to_db(conn))
-        
-    
-        
-    
